@@ -9,7 +9,7 @@
 <channel rdf:about="<TMPL_VAR link ESCAPE="HTML">">
 	<title><TMPL_VAR name ESCAPE="HTML"></title>
 	<link><TMPL_VAR link ESCAPE="HTML"></link>
-	<description><TMPL_VAR name> - <TMPL_VAR link ESCAPE="HTML"></description>
+	<description><TMPL_VAR name ESCAPE="HTML"> - <TMPL_VAR link ESCAPE="HTML"></description>
 
 	<items>
 		<rdf:Seq>
@@ -21,15 +21,15 @@
 </channel>
 
 <TMPL_LOOP Items>
-<item rdf:about="<TMPL_VAR link ESCAPE="HTML">">
-	<title><TMPL_VAR channel_name ESCAPE="HTML"><TMPL_IF title>: <TMPL_VAR title ESCAPE="HTML"></TMPL_IF></title>
+<item rdf:about="<TMPL_VAR id ESCAPE="HTML">">
+	<title><TMPL_VAR channel_name ESCAPE="HTML"><TMPL_IF title>: <TMPL_VAR title_plain ESCAPE="HTML"></TMPL_IF></title>
 	<link><TMPL_VAR link ESCAPE="HTML"></link>
 	<TMPL_IF content>
 	<content:encoded><TMPL_VAR content ESCAPE="HTML"></content:encoded>
 	</TMPL_IF>
 	<dc:date><TMPL_VAR date_iso></dc:date>
-	<TMPL_IF creator>
-	<dc:creator><TMPL_VAR creator ESCAPE="HTML"></dc:creator>
+	<TMPL_IF author_name>
+	<dc:creator><TMPL_VAR author_name></dc:creator>
 	</TMPL_IF>
 </item>
 </TMPL_LOOP>
