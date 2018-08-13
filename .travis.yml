@@ -12,7 +12,7 @@ script:
 - cd ${TRAVIS_BUILD_DIR}
 - pwd
 - mkdir -p public
-- ./code/planet.py -o config/config.ini
+- ./code/planet.py config/config.ini
 - ls -lR
 - cp -av public/* .
 
