@@ -1,0 +1,26 @@
+
+language: c
+
+cache:
+- directories:
+  - "${TRAVIS_BUILD_DIR}/cache"
+
+install:
+- true
+
+script:
+- cd ${TRAVIS_BUILD_DIR}
+- pwd
+- mkdir -p public
+- ./code/planet.py -o config/config.ini
+- ls -lR
+- cp -av public/* .
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  # local-dir: public
+  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  on:
+    branch: master
+
