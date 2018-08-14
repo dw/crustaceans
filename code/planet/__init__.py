@@ -614,6 +614,11 @@ class Channel(cache.CachedInfo):
         elif info.bozo and info.bozo_exception.__class__.__name__=='Timeout':
            self.url_status = str(408)
         else:
+           from pprint import pprint
+           pprint({
+               'error': 'Feedparser failed for some reason',
+               'info': info
+           })
            self.url_status = str(500)
 
         if self.url_status == '301' and \
