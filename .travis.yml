@@ -1,5 +1,7 @@
 
 language: c
+services:
+  - docker
 
 cache:
 - directories:
@@ -13,7 +15,8 @@ script:
 - pwd
 - mkdir -p public
 # Travis Ubuntu doesn't like modern certs for some reason.
-- PYTHONHTTPSVERIFY=0 ./code/planet.py config/config.ini
+# But even modern Ubuntu still throws errors.
+- docker run -v `pwd`:`pwd` -w `pwd` -e PYTHONHTTPSVERIFY=0 d2mw/crustaceans python2.7 `pwd`/code/planet.py `pwd`/config/config.ini
 - ls -lR
 - cp -av public/* .
 
