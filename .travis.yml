@@ -19,6 +19,7 @@ script:
 - docker run -v `pwd`:`pwd` -w `pwd` -e PYTHONHTTPSVERIFY=0 d2mw/crustaceans python2.7 `pwd`/code/planet.py `pwd`/config/config.ini
 - ls -lR
 - cp -av public/* .
+- cp -av static/* .
 
 deploy:
   provider: pages
